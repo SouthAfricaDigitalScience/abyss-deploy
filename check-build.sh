@@ -1,7 +1,7 @@
 #!/bin/bash -e
 . /etc/profile.d/modules.sh
 module load ci
-module add boost/1.5.9-gcc-${GCC_VERSION}-mpi-1.8.8
+module add boost/1.59.0-gcc-${GCC_VERSION}-mpi-1.8.8
 module add sparsehash
 module add sqlite
 
