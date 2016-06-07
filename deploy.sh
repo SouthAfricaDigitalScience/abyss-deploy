@@ -11,7 +11,7 @@ echo ${SOFT_DIR}
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 rm -rf *
-../configure \
+CFLAGS="-m64" ../configure \
 --prefix=${SOFT_DIR}/${VERSION}-mpi-${OPENMPI_VERSION}-gcc-${GCC_VERSION} \
 --with-boost=${BOOST_DIR} \
 --with-mpi=${OPENMPI_DIR} \
@@ -19,7 +19,7 @@ rm -rf *
 --with-sparsehash=${SPARSEHASH_DIR}
 make install -j2
 echo "Creating the modules file directory ${LIBRARIES_MODULES}"
-mkdir -p ${LIBRARIES_MODULES}/${NAME}
+mkdir -p ${BIOINFORMATICS_MODULES}/${NAME}
 (
 cat <<MODULE_FILE
 #%Module1.0
@@ -39,6 +39,6 @@ prepend-path CFLAGS            "-I$::env(ABYSS_DIR)/include"
 prepend-path LDFLAGS           "-L$::env(ABYSS_DIR)/lib"
 prepend-path PATH              $::env(ABYSS_DIR)/bin
 MODULE_FILE
-) > ${LIBRARIES_MODULES}/${NAME}/${VERSION}
+) > ${BIOINFORMATICS_MODULES}/${NAME}/${VERSION}
 
 which abyss
