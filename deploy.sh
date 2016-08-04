@@ -35,7 +35,7 @@ module add sqlite
 
 module-whatis   "$NAME $VERSION : See https://github.com/SouthAfricaDigitalScience/abyss-deploy"
 setenv ABYSS_VERSION       $VERSION
-setenv ABYSS_DIR           $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION-mpi-$::env(OPENMPI_VERSION)-gcc-$::env(GCC_VERSION)
+setenv ABYSS_DIR           $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$::env(NAME)/$::env(VERSION)-mpi-$::env(OPENMPI_VERSION)-gcc-$::env(GCC_VERSION)
 prepend-path LD_LIBRARY_PATH   $::env(ABYSS_DIR)/lib
 prepend-path GCC_INCLUDE_DIR   $::env(ABYSS_DIR)/include
 prepend-path CFLAGS            "-I$::env(ABYSS_DIR)/include"
@@ -45,6 +45,8 @@ MODULE_FILE
 ) > ${BIOINFORMATICS_MODULES}/${NAME}/${VERSION}
 
 module add ${NAME}/${VERSION}
-
+module  list
+echo "looking for ABYSS executable"
 which ABYSS
+echo "testing the executable"
 ABYSS --help
