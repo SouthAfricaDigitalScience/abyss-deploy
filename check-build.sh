@@ -10,7 +10,10 @@ make check
 
 echo $?
 
+echo "tests have pased. Doing make install"
 make install
+
+echo "installation complete. Making module"
 mkdir -p ${REPO_DIR}
 mkdir -p modules
 (

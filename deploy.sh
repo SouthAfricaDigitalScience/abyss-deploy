@@ -18,7 +18,8 @@ CFLAGS="-m64" ../configure \
 --with-sqlite=${SQLITE_DIR} \
 --with-sparsehash=${SPARSEHASH_DIR}
 make install -j2
-echo "Creating the modules file directory ${LIBRARIES_MODULES}"
+echo ""
+echo "Creating the modules file directory ${BIOINFORMATICS_MODULES}"
 mkdir -p ${BIOINFORMATICS_MODULES}/${NAME}
 (
 cat <<MODULE_FILE
