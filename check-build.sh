@@ -41,6 +41,7 @@ mkdir -p ${BIOINFORMATICS_MODULES}/${NAME}
 cp modules/$VERSION ${BIOINFORMATICS_MODULES}/${NAME}
 echo "checking the module"
 module add ${NAME}/${VERSION}
-
+echo "checking whether paths are correct"
 which ABYSS
+echo "Checking executable"
 ABYSS --help
